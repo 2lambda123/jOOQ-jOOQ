@@ -1825,7 +1825,7 @@ public class JavaGenerator extends AbstractGenerator {
                 // Instance methods ship with a SELF parameter at the first position
                 // [#1584] Static methods don't have that
                 boolean instance = routine.getInParameters().size() > 0
-                                && routine.getInParameters().get(0).getInputName().toUpperCase(getStrategy().getTargetLocale()).equals("SELF");
+                                && "SELF".equals(routine.getInParameters().get(0).getInputName().toUpperCase(getStrategy().getTargetLocale()));
 
                 try {
                     if (!routine.isSQLUsable()) {
@@ -6259,7 +6259,7 @@ public class JavaGenerator extends AbstractGenerator {
                 final String columnType = getJavaType(column.getType(resolver(out)), out);
                 final boolean array = isArrayType(columnType);
 
-                if (columnType.equals("scala.Array[scala.Byte]"))
+                if ("scala.Array[scala.Byte]".equals(columnType))
                     out.println("sb%s.append(\"[binary...]\")", separator);
                 else if (array)
                     out.println("sb%s.append(if (this.%s == null) \"\" else %s.deepToString(%s.asInstanceOf[ Array[Object] ]))", separator, columnMember, Arrays.class, columnMember);
@@ -6286,7 +6286,7 @@ public class JavaGenerator extends AbstractGenerator {
                 final String columnType = getJavaType(column.getType(resolver(out)), out);
                 final boolean array = isArrayType(columnType);
 
-                if (array && columnType.equals("kotlin.ByteArray"))
+                if (array && "kotlin.ByteArray".equals(columnType))
                     out.println("sb%s.append(\"[binary...]\")", separator);
                 else if (array)
                     out.println("sb%s.append(%s.deepToString(%s))", separator, Arrays.class, columnMember);
@@ -6313,7 +6313,7 @@ public class JavaGenerator extends AbstractGenerator {
                 final String columnType = getJavaType(column.getType(resolver(out)), out);
                 final boolean array = isArrayType(columnType);
 
-                if (array && columnType.equals("byte[]"))
+                if (array && "byte[]".equals(columnType))
                     out.println("sb%s.append(\"[binary...]\");", separator);
                 else if (array)
                     out.println("sb%s.append(%s.deepToString(%s));", separator, Arrays.class, columnMember);
@@ -10641,14 +10641,14 @@ public class JavaGenerator extends AbstractGenerator {
         else if (kotlin)
             return javaType.startsWith("kotlin.Array");
         else
-            return javaType.endsWith("[]") && !javaType.equals("byte[]");
+            return javaType.endsWith("[]") && !"byte[]".equals(javaType);
     }
 
     protected boolean isArrayType(String javaType) {
         if (scala)
             return javaType.startsWith("scala.Array");
         else if (kotlin)
-            return javaType.startsWith("kotlin.Array") || javaType.equals("kotlin.ByteArray");
+            return javaType.startsWith("kotlin.Array") || "kotlin.ByteArray".equals(javaType);
         else
             return javaType.endsWith("[]");
     }
