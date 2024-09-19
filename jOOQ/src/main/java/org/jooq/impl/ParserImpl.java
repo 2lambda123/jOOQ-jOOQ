@@ -3612,7 +3612,9 @@ final class DefaultParseContext extends AbstractScope implements ParseContext {
 
 
 
-                ;
+                {
+                    ;
+                }
                 else if (!ignoreProEdition() && peekKeyword("CONTINUE") && requireProEdition())
 
 
@@ -3630,7 +3632,9 @@ final class DefaultParseContext extends AbstractScope implements ParseContext {
 
 
 
-                ;
+                {
+                    ;
+                }
                 else if (!ignoreProEdition() && peekKeyword("DEFINE") && requireProEdition())
 
 
@@ -3644,12 +3648,16 @@ final class DefaultParseContext extends AbstractScope implements ParseContext {
 
 
 
-                ;
+                {
+                    ;
+                }
                 if (!ignoreProEdition() && peekKeyword("EXECUTE") && !peekKeyword("EXECUTE BLOCK") && requireProEdition())
 
 
 
-                ;
+                {
+                    ;
+                }
                 else if (!ignoreProEdition() && peekKeyword("EXIT") && requireProEdition())
 
 
@@ -3663,7 +3671,9 @@ final class DefaultParseContext extends AbstractScope implements ParseContext {
 
 
 
-                ;
+                {
+                    ;
+                }
 
                 break;
 
@@ -3672,7 +3682,9 @@ final class DefaultParseContext extends AbstractScope implements ParseContext {
 
 
 
-                ;
+                {
+                    ;
+                }
 
                 break;
 
@@ -3681,7 +3693,9 @@ final class DefaultParseContext extends AbstractScope implements ParseContext {
 
 
 
-                ;
+                {
+                    ;
+                }
                 else if (!ignoreProEdition() && peekKeyword("ITERATE") && requireProEdition())
 
 
@@ -3695,7 +3709,9 @@ final class DefaultParseContext extends AbstractScope implements ParseContext {
 
 
 
-                ;
+                {
+                    ;
+                }
                 else if (!ignoreProEdition() && peekKeyword("LET") && requireProEdition())
 
 
@@ -3720,7 +3736,9 @@ final class DefaultParseContext extends AbstractScope implements ParseContext {
 
 
 
-                ;
+                {
+                    ;
+                }
                 else if (!ignoreProEdition() && peekKeyword("RETURN") && requireProEdition())
 
 
@@ -3739,7 +3757,9 @@ final class DefaultParseContext extends AbstractScope implements ParseContext {
 
 
 
-                ;
+                {
+                    ;
+                }
                 else if (!ignoreProEdition() && peekKeyword("SIGNAL") && requireProEdition())
 
 
@@ -3753,7 +3773,9 @@ final class DefaultParseContext extends AbstractScope implements ParseContext {
 
 
 
-                ;
+                {
+                    ;
+                }
 
                 break;
         }
